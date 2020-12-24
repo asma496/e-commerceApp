@@ -6,16 +6,6 @@ import { auth } from '../config/Config'
 
 export const Home = ({ user }) => {
 
-    const history = useHistory();
-
-    useEffect(() => {
-        // forcing user to signup
-        auth.onAuthStateChanged(user => {
-            if (!user) {
-                history.push('/login');
-            }
-        })
-    })
 
     return (
         <div className='wrapper'>
