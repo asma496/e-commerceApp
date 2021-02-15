@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import logo from '../images/logo.jpg'
+import logo from '../images/logo.png'
 import { Link } from 'react-router-dom'
 import { auth } from '../config/Config'
 import { Icon } from 'react-icons-kit'
@@ -12,6 +12,7 @@ export const Navbar = ({ user }) => {
     const history = useHistory();
     const { totalQty } = useContext(CartContext);
 
+
     // handle logout
     const handleLogout = () => {
         auth.signOut().then(() => {
@@ -22,7 +23,8 @@ export const Navbar = ({ user }) => {
     return (
         <div className='navbox'>
             <div className='leftside'>
-                <img src={logo} alt="" />
+          <img src={logo} alt="" />
+
             </div>
             {!user && <div className='rightside'>
                 <span><Link to="signup" className='navlink'>SIGN UP</Link></span>
