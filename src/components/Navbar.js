@@ -26,6 +26,11 @@ export const Navbar = ({ user }) => {
           <img src={logo} alt="" />
 
             </div>
+            <div>
+                    <h1 className='main-heading'>
+                        E-Commerce
+                    </h1>
+                </div>
             {!user && <div className='rightside'>
                 <span><Link to="signup" className='navlink'>SIGN UP</Link></span>
                 <span><Link to="login" className='navlink'>LOGIN</Link></span>
