@@ -5,7 +5,7 @@ toast.configure();
 
 export const CartReducer = (state, action) => {
 
-    const { shoppingCart, totalPrice, totalQty } = state;
+    const { shoppingCart, totalprice, totalQty } = state;
 
     let product;
     let index;
@@ -32,11 +32,11 @@ export const CartReducer = (state, action) => {
             else {
                 product = action.product;
                 product['qty'] = 1;
-                product['TotalProductPrice'] = product.ProductPrice * product.qty;
+                product['TotalProductPrice'] = product.price * product.qty;
                 updatedQty = totalQty + 1;
-                updatedPrice = totalPrice + product.ProductPrice;
+                updatedPrice = totalprice + product.price;
                 return {
-                    shoppingCart: [product, ...shoppingCart], totalPrice: updatedPrice, totalQty: updatedQty
+                    shoppingCart: [product, ...shoppingCart], totalprice: updatedPrice, totalQty: updatedQty
                 }
             }
             break;
@@ -44,13 +44,13 @@ export const CartReducer = (state, action) => {
         case 'INC':
             product = action.cart;
             product.qty = ++product.qty;
-            product.TotalProductPrice = product.qty * product.ProductPrice;
+            product.Totalproductprice = product.qty * product.price;
             updatedQty = totalQty + 1;
-            updatedPrice = totalPrice + product.ProductPrice;
+            updatedPrice = totalprice + product.price;
             index = shoppingCart.findIndex(cart => cart.ProductID === action.id);
             shoppingCart[index] = product;
             return {
-                shoppingCart: [...shoppingCart], totalPrice: updatedPrice, totalQty: updatedQty
+                shoppingCart: [...shoppingCart], totalprice: updatedPrice, totalQty: updatedQty
             }
             break;
 
@@ -58,13 +58,13 @@ export const CartReducer = (state, action) => {
             product = action.cart;
             if (product.qty > 1) {
                 product.qty = product.qty - 1;
-                product.TotalProductPrice = product.qty * product.ProductPrice;
-                updatedPrice = totalPrice - product.ProductPrice;
+                product.Totalproductprice = product.qty * product.price;
+                updatedPrice = totalprice - product.price;
                 updatedQty = totalQty - 1;
                 index = shoppingCart.findIndex(cart => cart.ProductID === action.id);
                 shoppingCart[index] = product;
                 return {
-                    shoppingCart: [...shoppingCart], totalPrice: updatedPrice, totalQty: updatedQty
+                    shoppingCart: [...shoppingCart], totalprice: updatedPrice, totalQty: updatedQty
                 }
             }
             else {
@@ -76,15 +76,15 @@ export const CartReducer = (state, action) => {
             const filtered = shoppingCart.filter(product => product.ProductID !== action.id);
             product = action.cart;
             updatedQty = totalQty - product.qty;
-            updatedPrice = totalPrice - product.qty * product.ProductPrice;
+            updatedPrice = totalprice - product.qty * product.price;
             return {
-                shoppingCart: [...filtered], totalPrice: updatedPrice, totalQty: updatedQty
+                shoppingCart: [...filtered], totalprice: updatedPrice, totalQty: updatedQty
             }
             break;
 
         case 'EMPTY':
             return {
-                shoppingCart: [], totalPrice: 0, totalQty: 0
+                shoppingCart: [], totalprice: 0, totalQty: 0
             }
 
         default:
