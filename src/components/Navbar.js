@@ -26,10 +26,8 @@ export const Navbar = ({ user }) => {
           <img src={logo} alt="" />
 
 
-    </div>
-            <div>
-                                <div>
-
+            </div>
+                <div>
                     <h1 className='main-heading'>
                         E-Commerce
                     </h1>
