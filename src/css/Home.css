@@ -75,6 +75,9 @@
     background-color:#ffbb00;
     margin-left: 10px;
 }
+.rightside .logout-btn :hover{
+    background-color: blue !important;
+}
 
 /* products */
 
@@ -153,6 +156,14 @@ h1 {
     margin-bottom: 2px;
     outline: none;
 }
+.product-card:hover{
+    z-index: 1!important;
+    transform: scale(1.05)!important;
+    box-shadow: 0 8px 50px rgb(0,0,0,0.2)!important;
+}
+.addcart-btn:hover {
+    background-color: #f57224!important;
+  }
 
 /* cart */
 .cart-container {
@@ -219,7 +230,7 @@ h1 {
 .cart-container .cart-card .cart-price-orignal {
     width: 150px;
     margin-left: 20px;
-    color: #ffbb00;
+    color: black;
 }
 
 @media(max-width: 768px) {
